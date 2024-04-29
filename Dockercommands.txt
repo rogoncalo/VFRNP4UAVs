@@ -1,0 +1,36 @@
+sudo systemctl status docker
+
+
+
+sudo docker build -t gym-pybullet-drones .
+sudo docker run -it gym-pybullet-drones
+sudo docker run -it gym-pybullet-drones python
+
+ver imagens:
+$ sudo docker images -q
+
+delete imagens
+$sudo docker rmi 16d06e7de295 a8260aeae86e
+
+delete all imagens
+sudo docker rmi $(sudo docker images -q)
+
+
+
+
+Containers
+Stop container
+$ sudo docker stop f3681f277e9e
+
+remove container:
+$ sudo docker rm f3681f277e9e
+
+ver containers:
+$ sudo docker ps -a
+
+remove all Containers
+sudo docker rm $(sudo docker ps -a -q)
+
+
+
+sudo docker run -it --entrypoint /bin/bash gym-pybullet-droneses

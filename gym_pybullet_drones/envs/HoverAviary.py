@@ -17,9 +17,12 @@ class HoverAviary(BaseRLAviary):
                  ctrl_freq: int = 30,
                  gui=False,
                  record=False,
+<<<<<<< HEAD
                  wind_intensity=5, 
                  wind_direction=np.pi/4, 
                  rain_intensity=10,
+=======
+>>>>>>> VFRNP4UAVs/GRprogrammer
                  obs: ObservationType=ObservationType.KIN,
                  act: ActionType=ActionType.RPM
                  ):
@@ -52,9 +55,12 @@ class HoverAviary(BaseRLAviary):
 
         """
         self.TARGET_POS = np.array([0,0,1])
+<<<<<<< HEAD
         self.WIND_INTENSITY = wind_intensity
         self.WIND_DIRECTION = wind_direction
         self.RAIN_INTENSITY = rain_intensity
+=======
+>>>>>>> VFRNP4UAVs/GRprogrammer
         self.EPISODE_LEN_SEC = 8
         super().__init__(drone_model=drone_model,
                          num_drones=1,
@@ -81,7 +87,11 @@ class HoverAviary(BaseRLAviary):
 
         """
         state = self._getDroneStateVector(0)
+<<<<<<< HEAD
         ret = max(0, 2 - np.linalg.norm(self.TARGET_POS-state[0:3])**4 - self.WIND_INTENSITY * np.cos(self.WIND_DIRECTION - state[3]) - self.RAIN_INTENSITY)
+=======
+        ret = max(0, 2 - np.linalg.norm(self.TARGET_POS-state[0:3])**4)
+>>>>>>> VFRNP4UAVs/GRprogrammer
         return ret
 
     ################################################################################

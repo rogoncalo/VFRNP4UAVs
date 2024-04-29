@@ -1,7 +1,10 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # VFRNP4UAVs
 Verificação Formal de Redes Neuronais Profundas em Contexto de Controlo de UAVs
 =======
+=======
+>>>>>>> VFRNP4UAVs/GRprogrammer
 # gym-pybullet-drones
 
 This is a minimalist refactoring of the original `gym-pybullet-drones` repository, designed for compatibility with [`gymnasium`](https://github.com/Farama-Foundation/Gymnasium), [`stable-baselines3` 2.0](https://github.com/DLR-RM/stable-baselines3/pull/1327), and SITL [`betaflight`](https://github.com/betaflight/betaflight)/[`crazyflie-firmware`](https://github.com/bitcraze/crazyflie-firmware/).
@@ -132,4 +135,7 @@ pytest tests/
 
 -----
 > University of Toronto's [Dynamic Systems Lab](https://github.com/utiasDSL) / [Vector Institute](https://github.com/VectorInstitute) / University of Cambridge's [Prorok Lab](https://github.com/proroklab)
+<<<<<<< HEAD
 >>>>>>> 2d7972c (New Pybullet project)
+=======
+>>>>>>> VFRNP4UAVs/GRprogrammer

@@ -527,10 +527,15 @@ class BaseAviary(gym.Env):
 
         """
         if self.RECORD and self.GUI:
+<<<<<<< HEAD
             VIDEO_FOLDER = os.path.join(self.OUTPUT_FOLDER, "recording_" + datetime.now().strftime("%m.%d.%Y_%H.%M.%S"))
             os.makedirs(os.path.dirname(VIDEO_FOLDER), exist_ok=True)
             self.VIDEO_ID = p.startStateLogging(loggingType=p.STATE_LOGGING_VIDEO_MP4,
                                                 fileName=os.path.join(VIDEO_FOLDER, "output.mp4"),
+=======
+            self.VIDEO_ID = p.startStateLogging(loggingType=p.STATE_LOGGING_VIDEO_MP4,
+                                                fileName=os.path.join(self.OUTPUT_FOLDER, "video-"+datetime.now().strftime("%m.%d.%Y_%H.%M.%S")+".mp4"),
+>>>>>>> VFRNP4UAVs/GRprogrammer
                                                 physicsClientId=self.CLIENT
                                                 )
         if self.RECORD and not self.GUI:

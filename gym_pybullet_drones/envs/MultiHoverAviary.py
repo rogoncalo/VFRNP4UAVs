@@ -19,9 +19,12 @@ class MultiHoverAviary(BaseRLAviary):
                  ctrl_freq: int = 30,
                  gui=False,
                  record=False,
+<<<<<<< HEAD
                  wind_intensity=5, 
                  wind_direction=np.pi/4, 
                  rain_intensity=10,
+=======
+>>>>>>> VFRNP4UAVs/GRprogrammer
                  obs: ObservationType=ObservationType.KIN,
                  act: ActionType=ActionType.RPM
                  ):
@@ -57,9 +60,12 @@ class MultiHoverAviary(BaseRLAviary):
             The type of action space (1 or 3D; RPMS, thurst and torques, or waypoint with PID control)
 
         """
+<<<<<<< HEAD
         self.WIND_INTENSITY = wind_intensity
         self.WIND_DIRECTION = wind_direction
         self.RAIN_INTENSITY = rain_intensity
+=======
+>>>>>>> VFRNP4UAVs/GRprogrammer
         self.EPISODE_LEN_SEC = 8
         super().__init__(drone_model=drone_model,
                          num_drones=num_drones,
@@ -90,9 +96,13 @@ class MultiHoverAviary(BaseRLAviary):
         states = np.array([self._getDroneStateVector(i) for i in range(self.NUM_DRONES)])
         ret = 0
         for i in range(self.NUM_DRONES):
+<<<<<<< HEAD
             ret += max(0, 2 - np.linalg.norm(self.TARGET_POS[i,:]-states[i][0:3])**4
                       - self.WIND_INTENSITY * np.cos(self.WIND_DIRECTION - states[i][3])
                       - self.RAIN_INTENSITY)
+=======
+            ret += max(0, 2 - np.linalg.norm(self.TARGET_POS[i,:]-states[i][0:3])**4)
+>>>>>>> VFRNP4UAVs/GRprogrammer
         return ret
 
     ################################################################################
@@ -128,15 +138,24 @@ class MultiHoverAviary(BaseRLAviary):
         """
         states = np.array([self._getDroneStateVector(i) for i in range(self.NUM_DRONES)])
         for i in range(self.NUM_DRONES):
+<<<<<<< HEAD
             if (abs(states[i][0]) > 2.0 or abs(states[i][1]) > 2.0 or states[i][2] > 2.0
                 or abs(states[i][7]) > .4 or abs(states[i][8]) > .4
+=======
+            if (abs(states[i][0]) > 2.0 or abs(states[i][1]) > 2.0 or states[i][2] > 2.0 # Truncate when a drones is too far away
+             or abs(states[i][7]) > .4 or abs(states[i][8]) > .4 # Truncate when a drone is too tilted
+>>>>>>> VFRNP4UAVs/GRprogrammer
             ):
                 return True
         if self.step_counter/self.PYB_FREQ > self.EPISODE_LEN_SEC:
             return True
         else:
             return False
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> VFRNP4UAVs/GRprogrammer
     ################################################################################
     
     def _computeInfo(self):
