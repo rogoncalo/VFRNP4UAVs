@@ -33,4 +33,8 @@ sudo docker rm $(sudo docker ps -a -q)
 
 
 
-sudo docker run -it --entrypoint /bin/bash gym-pybullet-droneses
+sudo docker build -t gym-pybullet-drones .
+
+sudo docker run -it --entrypoint /bin/bash gym-pybullet-drones
+
+

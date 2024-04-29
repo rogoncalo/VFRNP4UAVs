@@ -11,24 +11,21 @@ RUN apt-get update && \
         libx11-xcb-dev \
         wget \
         xvfb \
-        xauth && \
+        xauth \
+        x11-apps && \
     rm -rf /var/lib/apt/lists/*
 
 # Set PATH to include Miniconda binaries
 ENV PATH="/opt/conda/bin:${PATH}"
 
+# Install additional dependencies using pip and conda
+COPY requirements.txt /tmp/requirements.txt
+RUN pip install --no-cache-dir -r /tmp/requirements.txt
+
 # Install Miniconda
 RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh && \
     bash miniconda.sh -b -p /opt/conda && \
     rm miniconda.sh
-
-# Initialize Conda and set up the base environment
-RUN /opt/conda/bin/conda init bash
-RUN echo "conda activate base" >> ~/.bashrc
-
-# Create and activate a new Conda environment
-RUN /opt/conda/bin/conda create -n drones python=3.9
-RUN echo "conda activate drones" >> ~/.bashrc
 
 # Set the working directory in the container
 WORKDIR /app
@@ -44,3 +41,4 @@ ENV DISPLAY=:99
 
 # Specify the command to run on container start
 CMD ["xvfb-run", "-s", ":99", "python", "gym_pybullet_drones/examples/pid.py"]
+
