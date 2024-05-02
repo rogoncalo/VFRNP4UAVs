@@ -34,7 +34,7 @@ from transforms3d.quaternions import rotate_vector, qconjugate, mat2quat, qmult
 from transforms3d.utils import normalized_vector
 
 from gym_pybullet_drones.utils.enums import DroneModel, Physics
-from gym_pybullet_drones.envs.BetaAviary import BetaAviary
+from gym_pybullet_drones.envs.BaseAviary import BetaAviary
 from gym_pybullet_drones.control.CTBRControl import CTBRControl
 from gym_pybullet_drones.utils.Logger import Logger
 from gym_pybullet_drones.utils.utils import sync, str2bool

@@ -22,7 +22,7 @@ class CtrlAviary(BaseAviary):
                  record=False,
                  obstacles=False,
                  user_debug_gui=True,
-                 output_folder='results'
+                 output_folder='results',
                  ):
         """Initialization of an aviary environment for control applications.
 
